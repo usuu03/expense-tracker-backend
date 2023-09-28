@@ -3,6 +3,7 @@ package usu.edeaghe.expensetracker.model;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.util.Calendar;
 
 
 @Entity
@@ -30,8 +31,14 @@ public class Expense {
         this.title = title;
         this.category = category;
         this.amount = amount;
-        this.date = date;
     }
+
+    @PrePersist
+    protected void onCreate() {
+        // Set the date to the current date when the entity is created
+        date = new Date(Calendar.getInstance().getTime().getTime());
+    }
+
 
     public int getId() {
         return id;

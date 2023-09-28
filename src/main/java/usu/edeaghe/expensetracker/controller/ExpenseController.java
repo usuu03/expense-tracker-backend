@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin(origins = {"http://localhost:3000"})
 @RestController
 @RequestMapping("/expenses")
 public class ExpenseController {
@@ -68,9 +69,8 @@ public class ExpenseController {
     }
 
     /**
-     * Deleting an employee
+     * Deleting an expense
      */
-
     @DeleteMapping("/{id}")
     public ResponseEntity<Map<String, Boolean>> deleteExpense(@PathVariable int id){
 
